@@ -4,6 +4,10 @@ A lightweight Docker API that provides storage statistics.
 
 Monitor any mount point, NAS share, RAID array, or mergerFS pool and display the results in Glance using a custom-api widget.
 
+## Screenshot
+
+<img width="314" height="190" alt="storage-stats-screenshot" src="https://github.com/user-attachments/assets/a25a4e39-d572-4c9b-8b20-7cf0556f65eb" />
+
 ## Features
 
 * Works with local disks, NAS mounts, mergerFS pools, and network storage
@@ -57,7 +61,7 @@ curl http://localhost:3020/api/storage
 
 ## Glance Widget
 
-Add the following widget to your Glance configuration:
+Add the following widget to your Glance configuration and edit the url:
 
 ```yaml
 - type: custom-api
