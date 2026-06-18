@@ -35,7 +35,7 @@ def storage_stats():
     stats = os.statvfs(CONTAINER_PATH)
 
     total = stats.f_blocks * stats.f_frsize
-    free = stats.f_bavail * stats.f_frsize
+    free = stats.f_bfree * stats.f_frsize
     used = total - free
 
     used_percent = round((used / total) * 100, 1) if total else 0
