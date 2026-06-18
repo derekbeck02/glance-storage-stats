@@ -3,7 +3,8 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-PATH_TO_MONITOR = os.getenv("PATH_TO_MONITOR", "/storage")
+HOST_PATH = os.getenv("PATH_TO_MONITOR", "/storage")
+CONTAINER_PATH = "/storage"
 UNIT = os.getenv("UNIT", "TB").upper()
 
 SUBTITLE = os.getenv("SUBTITLE", "/storage")
@@ -31,7 +32,7 @@ def health():
 
 @app.route("/api/storage")
 def storage_stats():
-    stats = os.statvfs(PATH_TO_MONITOR)
+    stats = os.statvfs(CONTAINER_PATH)
 
     total = stats.f_blocks * stats.f_frsize
     free = stats.f_bavail * stats.f_frsize
@@ -43,7 +44,7 @@ def storage_stats():
     return jsonify({
         "subtitle": SUBTITLE,
         "show_subtitle": SHOW_SUBTITLE,
-        "path": PATH_TO_MONITOR,
+        "path": HOST_PATH,
         "unit": UNIT,
         "total_bytes": total,
         "used_bytes": used,
