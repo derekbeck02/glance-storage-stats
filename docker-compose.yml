@@ -1,0 +1,15 @@
+services:
+  storage-stats:
+    build: .
+    container_name: storage-stats
+
+    env_file:
+      - .env
+
+    volumes:
+      - ${PATH_TO_MONITOR}:/storage:ro
+
+    ports:
+      - "3020:3020"
+
+    restart: unless-stopped
