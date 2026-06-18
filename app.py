@@ -7,7 +7,7 @@ HOST_PATH = os.getenv("PATH_TO_MONITOR", "/storage")
 CONTAINER_PATH = "/storage"
 UNIT = os.getenv("UNIT", "TB").upper()
 
-SUBTITLE = os.getenv("SUBTITLE", "/storage")
+SUBTITLE = os.getenv("SUBTITLE", "")
 SHOW_SUBTITLE = os.getenv("SHOW_SUBTITLE", "true").lower() != "false"
 
 UNITS = {
@@ -44,7 +44,8 @@ def storage_stats():
     return jsonify({
         "subtitle": SUBTITLE,
         "show_subtitle": SHOW_SUBTITLE,
-        "path": HOST_PATH,
+        "host_path": HOST_PATH,
+	"container_path": CONTAINER_PATH,
         "unit": UNIT,
         "total_bytes": total,
         "used_bytes": used,

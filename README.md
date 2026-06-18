@@ -102,6 +102,10 @@ Add the following widget to your Glance configuration:
 ```json
 {
   "subtitle": "Main Storage",
+  "show_subtitle": true,
+  "host_path": "/path/to/your/storage",
+  "container_path": "/storage",
+  "unit": "TB",
   "used": "2.30 TB",
   "free": "13.70 TB",
   "total": "16.00 TB",
